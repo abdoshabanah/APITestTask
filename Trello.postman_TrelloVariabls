@@ -1,0 +1,51 @@
+{
+	"id": "223d56f1-7645-4f66-8f5c-e3aa6a93e2f0",
+	"name": "Trello",
+	"values": [
+		{
+			"key": "BoardID",
+			"value": "X0111",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "BaseURL",
+			"value": "https://api.trello.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "Key",
+			"value": "039f659276511d2cddc455356c559adf",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "Token",
+			"value": "b94403ac8a94e3371e738f48c81ab5845c8f2dcffcbdbfebf316b6d0f3296cc5",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ID",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "ListName",
+			"value": "List1",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "LID",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-10-07T16:30:44.206Z",
+	"_postman_exported_using": "Postman/10.0.15"
+}

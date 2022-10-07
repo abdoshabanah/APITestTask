@@ -1,0 +1,45 @@
+                                                          API First Task
+
+
+
+--------
+API: POST /api/v1/Authors
+
+Test Case_1: Register a new valid Author successfully and response code "201 Created".
+Expected Result: Author should be registered successfully and response code should be "201 Created"
+Actual Result:  Author registered successfully and response code is "200"
+Status: Pass
+
+
+
+Test Case_2: firstname & lastname should be mandatory.
+Expected Result: The request should fail and the response code should be 400 if firstname is missed in the request body (same for lastname).
+Actual Result:   The request is failed and the response code is 400.
+Status: Pass
+
+-------
+
+API: GET /api/v1/Authors/authors/books/{idBook}
+
+Test Case_1: Searching with valid idBook should return relative data in response body.
+Expected Result: Searching with valid idBook like 1 then all returned results in response body should contain idBook = 1
+Actual Result:  All Books with idBook are retrieved successfully and response code is "200"
+Status: Pass
+
+-------
+
+API: PUT /api/v1/Authors/{id}
+
+Test Case_1: Author's data is updated successfully.
+Expected Result: Update (firstname, lastname) and confirm that Author's data in response is updated successfully.
+Actual Result:  Data updated successfully and response code is "200"
+Status: Pass
+
+-------
+
+API: GET /api/v1/Authors/{id}
+
+Test Case_1: The author's data is changed in GET request.
+Expected Result: if a change occurred from one endpoint, it will affect other endpoints as well
+Actual Result:  Changes are not appeared in the response body
+Status: Fail

@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "12e2e2e1-4f11-4c4c-be79-5d804b71ff50",
+		"name": "fakerestapi.azurewebsites",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11355672"
+	},
+	"item": [
+		{
+			"name": "GET /api/v1/Authors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\", \"idBook\", \"firstName\", \"lastName\");\r",
+							"});\r",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/api/v1/Authors",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/v1/Authors TC_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"firstName\", \"FN0\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 999,\r\n  \"idBook\": 9,\r\n  \"firstName\": \"FN0\",\r\n  \"lastName\": \"LN0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/api/v1/Authors",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/v1/Authors TC_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 999,\r\n    \"idBook\": 9,\r\n    \"firstName\": 1,\r\n    \"lastName\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/api/v1/Authors",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/Authors/authors/books/{idBook}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"idBook\", \"90\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/api/v1/Authors/authors/books/{{idBook}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"{{idBook}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /api/v1/Authors/{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\r",
+							"    \"firstName\", \"X\", \"lastName\", \"Y\"\r",
+							"    );\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"id\": 1,\r\n    \"idBook\": 200,\r\n    \"firstName\": \"F\",\r\n    \"lastName\": \"L\"\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Base_URL}}/api/v1/Authors/{{ID}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{ID}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/Authors/{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\r",
+							"    \"X\" , \"Y\"\r",
+							"    );\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}/api/v1/Authors/{{ID}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Base_URL",
+			"value": "http://fakerestapi.azurewebsites.net"
+		},
+		{
+			"key": "idBook",
+			"value": "90"
+		},
+		{
+			"key": "ID",
+			"value": "1"
+		}
+	]
+}
